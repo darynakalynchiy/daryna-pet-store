@@ -44,6 +44,11 @@ jobs:
             sonar.pullrequest.branch=${{github.head_ref}} 
             sonar.pullrequest.base=${{github.base_ref}} 
             sonar.pullrequest.key=${{github.event.number}} 
+      - name: Upload SARIF file
+  if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+  uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: codescan.sarif
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
         with:
