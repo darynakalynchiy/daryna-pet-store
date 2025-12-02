@@ -1,9 +1,9 @@
 name: CI
 on: 
   push: 
-    branches: [main] 
+    branches: [master] 
   pull_request: 
-    branches: [main]
+    branches: [master]
 env: 
   SONAR_SCANNER_VERSION: 5.0.1.3006
 jobs: 
